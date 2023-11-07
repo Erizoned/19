@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>AsdASDASD</title> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> 
+</head> 
+<body> 
+    <script> 
+        let kartinki = [ 
+            "https://img.freepik.com/free-vector/dog-with-drawn-suit_79603-538.jpg?size=338&ext=jpg&ga=GA1.1.386372595.1698278400&semt=ais", 
+            "https://i.redd.it/ket76730w05a1.jpg", 
+            "https://img.freepik.com/free-photo/fluffy-baby-rabbit-looks-for-carrots-humorously-generated-by-ai_188544-30979.jpg?w=2000", 
+            "https://img.freepik.com/premium-photo/a-rabbit-wearing-sunglasses-and-a-rainbow-of-stars_771335-47576.jpg", 
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjLC23O1_2bmDcP3T1Qysr35y2rQ4riNe_MA&usqp=CAU" 
+        ] 
+        var index = 0; 
+        $(document).ready(function(){ 
+            $("#pred").click(function(){ 
+                index -= 1 
+                if(index < 0){
+                    index = 4;
+                }
+                $("#boba").prop("src", kartinki[index]) 
+            });                                                                             
+            $("#sled").click(function(){ 
+                index += 1 
+                if(index > 4){
+                    index = 0;
+                }
+                $("#boba").prop("src", kartinki[index]) 
+            }); 
+        }); 
+        $(document).ready(function(){
+            var shtuki = $("#kik"); 
+            var w = shtuki.width();
+            var h = shtuki.height();
+            var tag = shtuki.text();
+            var fon = shtuki.css("background-color");
+            var nefon = "blueviolet"
+            var cv = shtuki.css("color")
+            var necv = "rgb(226, 220, 43)"
+            $("#kik").mouseover(function(){ 
+                var ww = w * 2;
+                var hh = h * 2;
+                shtuki.text("Не Тагир");
+                shtuki.css("background-color", nefon)
+                shtuki.css("color", necv)
+                shtuki.animate({width: ww, height: hh},"fast") 
+            });
+            $("#kik").mouseleave(function(){
+                shtuki.text(tag)
+                shtuki.css("background-color", fon)
+                shtuki.css("color", cv)
+                shtuki.animate({width: w, height: h},"fast") 
+            }) 
+        });
+        $(document).ready(function () {
+        var anim = $("#zmei");
+        var animationInterval;
+        
+        $("#startAnimation").click(function () {
+            var spid = $("#ss").val();
+
+            if (spid === 'Быстро') {
+                animationInterval = setInterval(function () {
+                    anim.animate({ left: '700px', top: '300px' }, 'fast');
+                }, 1000);
+            } else if (spid === 'Медленно') {
+                animationInterval = setInterval(function () {
+                    anim.animate({ left: '700px', top: '300px' }, 'slow');
+                }, 1000);
+            }
+        });
+
+        $("#stopAnimation").click(function () {
+            clearInterval(animationInterval);
+        });
+    });
+    </script> 
+    <!-- <div style="background-color:aqua;">
+    <h1 >Задание 1</h1>
+    <CENTER>
+            <img id="boba" src="https://img.freepik.com/free-vector/dog-with-drawn-suit_79603-538.jpg?size=338&ext=jpg&ga=GA1.1.386372595.1698278400&semt=ais" style="height:200px; width: 250px; "> <br>
+            <button id="pred"> Предыдущая картинка </button> 
+            <button id="sled"> Следующая картинка </button> 
+    </CENTER>
+    <hr>
+    </div>
+    <div style="background-color:rgb(95, 255, 255)">
+    <h1>Задание 2</h1>
+        <div id="kik" style="background-color: rgb(226, 220, 43); color:blueviolet;height:100px;width:200px; text-align: center;"> Тагир </div> 
+        <hr>
+    </div> -->
+    <div>
+        <h1>Задание 3</h1>
+        <h3>Введите скорость:</h3><input type="text" name="skorost" id="ss"> <button id="pagna">Подтвердить</button><button id="stop">ОСт</button>
+        <div id="zmei" style="background-color: rgb(226, 220, 43); position: absolute; height:100px;width:200px;"></div>
+    </div>
+</body> 
+</html>
